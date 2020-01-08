@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.canon.five-bitch</groupId>
-    <version>1.0-SNAPSHOT</version>
     <artifactId>base-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
 
     <name>base-service</name>
 
@@ -14,6 +15,7 @@
         <druid.version>1.1.10</druid.version>
         <mybatis-spring-boot>2.1.0</mybatis-spring-boot>
         <mybatis-version>3.4.6</mybatis-version>
+        <spring-boot-starter.version>2.1.2.RELEASE</spring-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -27,6 +29,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring-boot-starter.version}</version>
+        </dependency>
+
+        <!-- jdbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <version>${spring-boot-starter.version}</version>
         </dependency>
 
         <!-- sql connect -->
@@ -49,20 +59,16 @@
             </exclusions>
         </dependency>
 
-        <!-- jdbc -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jdbc</artifactId>
-        </dependency>
+
 
 
         <!--使用h2database-->
         <!-- h2 数据源依赖 -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.h2database</groupId>-->
+            <!--<artifactId>h2</artifactId>-->
+            <!--<scope>runtime</scope>-->
+        <!--</dependency>-->
 
         <!-- Spring Boot Mybatis 依赖 -->
         <dependency>

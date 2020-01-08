@@ -1,5 +1,9 @@
 package com.canon.base.config;
 
+import com.canon.base.mybatis.CanonMapperScannerConfigurer;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -18,4 +22,17 @@ public class MybatisConfig {
 //
 //        return sqlSessionFactoryBuilder.build(null);
 //    }
+
+
+    @Value("${canon.mybatis.basePackage}")
+    private String basePackage;
+
+
+    @Bean
+    public MapperScannerConfigurer getMapperScannerConfigurer() {
+        MapperScannerConfigurer mapperScannerConfigurer = new CanonMapperScannerConfigurer();
+        mapperScannerConfigurer.setBasePackage(basePackage);
+        return mapperScannerConfigurer;
+    }
+
 }
