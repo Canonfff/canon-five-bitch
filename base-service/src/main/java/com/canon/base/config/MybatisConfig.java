@@ -1,10 +1,13 @@
 package com.canon.base.config;
 
-import com.canon.base.mybatis.CanonMapperScannerConfigurer;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 /**
  * @program: five-bitch
@@ -13,26 +16,28 @@ import org.springframework.context.annotation.Configuration;
  * @Description:
  */
 @Configuration
+// @ConditionalOnSingleCandidate(DataSource.class)
+// @EnableTransactionManagement
+
 public class MybatisConfig {
 
 
-//    @Bean
-//    public FactoryBean getMabatisFactory() {
-//        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
-//
-//        return sqlSessionFactoryBuilder.build(null);
-//    }
+    private DataSource dataSource;
 
-
-    @Value("${canon.mybatis.basePackage}")
-    private String basePackage;
+    @Autowired
+    public DataSource getDataSource() {
+        return dataSource;
+    }
 
 
     @Bean
-    public MapperScannerConfigurer getMapperScannerConfigurer() {
-        MapperScannerConfigurer mapperScannerConfigurer = new CanonMapperScannerConfigurer();
+    public MapperScannerConfigurer getMapperScannerConfigurer(@Value("${canon.mybatis.basePackage}") String basePackage) {
+        System.err.println(basePackage);
+        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+        basePackage = "com.*.dao";
         mapperScannerConfigurer.setBasePackage(basePackage);
         return mapperScannerConfigurer;
     }
+
 
 }

@@ -46,6 +46,12 @@
             <version>${mysql.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot-starter.version}</version>
+        </dependency>
+
         <!-- druid connect pool -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -88,6 +94,9 @@
             <artifactId>mybatis</artifactId>
             <version>${mybatis-version}</version>
         </dependency>
+
+        <!-- test -->
+
     </dependencies>
 
 </project>

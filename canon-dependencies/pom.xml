@@ -8,9 +8,58 @@
     <artifactId>canon-dependencies</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <properties>
+        <base-service.version>1.0-SNAPSHOT</base-service.version>
+        <spring-boot-starter.version>2.1.2.RELEASE</spring-boot-starter.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 一方包 -->
+            <dependency>
+                <groupId>com.canon.five-bitch</groupId>
+                <artifactId>base-service</artifactId>
+                <version>${base-service.version}</version>
+            </dependency>
+
+            <!-- 框架包 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot-starter.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>com.canon.five-bitch</groupId>
+                <artifactId>canon-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <modules>
         <module>canon-model</module>
-        <module>../base-service</module>
     </modules>
 
 

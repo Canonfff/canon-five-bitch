@@ -3,6 +3,7 @@ package com.canon.base.config;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -23,7 +24,10 @@ import java.util.Map;
  * @Description:
  */
 @Configuration
+@AutoConfigureAfter(MybatisConfig.class)
 public class DruidConfig {
+
+    private DataSource dataSource;
 
     // 解决 spring.datasource.filters=stat,wall,log4j 无法正常注册
     @Bean
@@ -31,7 +35,8 @@ public class DruidConfig {
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         // 使用工厂构建druidDataSource对象
-        return DruidDataSourceBuilder.create().build();
+        this.dataSource = DruidDataSourceBuilder.create().build();
+        return dataSource;
     }
 
     /**
@@ -40,7 +45,7 @@ public class DruidConfig {
      */
     @Bean
     public JdbcTemplate getJdbcTemplate() {
-        return new JdbcTemplate(dataSource());
+        return new JdbcTemplate(dataSource);
     }
 
 
