@@ -13,10 +13,11 @@ import org.springframework.core.annotation.Order;
  * @Auther: canon
  * @Date: 2020/1/10 10:57
  * @Description:由于占位符的解析比 {@link org.mybatis.spring.mapper.MapperScannerConfigurer}
- * 加载更慢,因此;需要将占位符的解析往前;
+ * 加载更慢,因此;需要将占位符的解析加载往前; {@link org.springframework.context.support.PostProcessorRegistrationDelegate}
+ * 默认加载是最大的int 所以要将加载order执行顺序往前
  */
-@Configuration
-@Order(1)
+ @Configuration
+ @Order(1)
 public class CanonPropertySourcesPlaceholderConfigurer extends PropertySourcesPlaceholderConfigurer implements BeanDefinitionRegistryPostProcessor {
 
     @Override

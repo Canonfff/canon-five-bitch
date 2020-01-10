@@ -10,4 +10,6 @@ import com.canon.platform.model.IdCenter;
  */
 public interface IIdCenterService {
     IdCenter findById(Long id);
+
+    void add(IdCenter idCenter);
 }

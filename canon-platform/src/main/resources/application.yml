@@ -10,7 +10,7 @@ trace: false
 
 
 canon:
-    mybatisBasePackage: com.canon.*.dao
+    mybatisBasePackage: com.*.dao
 
 
 
@@ -70,6 +70,6 @@ mybatis:
     mapper-locations: classpath:mapper/*.xml
     type-aliases-package: com.canon.model
     # type-handlers-package: org.apache.ibatis.type
-    basePackage: com.canon.*.dao
+    interceptors: com.canon.base.mybatis.ExecutorInterceptor
 
 

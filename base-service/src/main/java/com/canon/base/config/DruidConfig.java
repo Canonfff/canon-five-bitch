@@ -23,6 +23,7 @@ import java.util.Map;
  * @Description:
  */
 @Configuration
+
 public class DruidConfig {
 
     private DataSource dataSource;
@@ -36,6 +37,9 @@ public class DruidConfig {
         this.dataSource = DruidDataSourceBuilder.create().build();
         return dataSource;
     }
+
+
+
 
     /**
      * init jdbcTemplate

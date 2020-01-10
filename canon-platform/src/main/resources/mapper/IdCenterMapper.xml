@@ -17,7 +17,8 @@
 		id,app,tableName,cindex,createtime,keypre,fstep
 	</sql>
 
-	<select id="findById" resultType="com.canon.platform.model.IdCenter" parameterType="java.lang.Long">
+
+    <select id="findById" resultType="com.canon.platform.model.IdCenter" parameterType="java.lang.Long">
 		select
 		<include refid="Base_Column_List" />
 		from t_idcenter

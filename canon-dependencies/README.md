@@ -21,6 +21,21 @@
 无法注入的问题,其实是spring加载顺序的问题;
 
 
+2020-01-10
+mybatis完成配置解耦问题
+
+完成mybatis自定义拦截器处理
+参考文章:
+https://blog.csdn.net/qq_29653517/article/details/86299928
+
+目前来说,还有一点问题;就是我这拦截器不熟悉;因此需要更多的关注是怎么
+实现的
+
+拦截器的配置
+https://www.cnblogs.com/A-yes/p/10619390.html
+
+
+
 
 
 
