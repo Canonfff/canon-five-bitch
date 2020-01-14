@@ -34,6 +34,12 @@ https://blog.csdn.net/qq_29653517/article/details/86299928
 拦截器的配置
 https://www.cnblogs.com/A-yes/p/10619390.html
 
+2020-01-13 mybatis拦截器已经加好了;目前采用的方式是使用config
+配置的方式添加
+
+添加事务处理;
+目前来说,springboot的事务处理机制是采用注解的方式进行;还是需要
+仔细看看
 
 
 

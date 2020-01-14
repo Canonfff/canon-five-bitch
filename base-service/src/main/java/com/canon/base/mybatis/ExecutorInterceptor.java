@@ -8,7 +8,6 @@ import org.apache.ibatis.plugin.Plugin;
 import org.apache.ibatis.plugin.Signature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.util.Properties;
@@ -43,7 +42,7 @@ public class ExecutorInterceptor implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        logger.error("CanonMybatisInterceptor is useings");
+        logger.error("ExecutorInterceptor is useings");
         return invocation.proceed();
     }
 
@@ -54,6 +53,7 @@ public class ExecutorInterceptor implements Interceptor {
      */
     @Override
     public Object plugin(Object target) {
+        logger.error("ExecutorInterceptor is plugins");
         return Plugin.wrap(target, this);
     }
 

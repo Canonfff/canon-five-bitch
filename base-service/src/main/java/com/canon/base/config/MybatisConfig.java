@@ -34,7 +34,7 @@ public class MybatisConfig {
      * 配置mybatis sql拦截器
      * @return
      */
-    @Bean
+    @Bean("configurationCustomizer")
     public ConfigurationCustomizer getConfigurationCustomizer() {
         return new ConfigurationCustomizer() {
             @Override
