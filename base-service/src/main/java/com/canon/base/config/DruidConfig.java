@@ -23,10 +23,9 @@ import java.util.Map;
  * @Description:
  */
 @Configuration
-
 public class DruidConfig {
 
-    private DataSource dataSource;
+    // private DataSource dataSource;
 
     // 解决 spring.datasource.filters=stat,wall,log4j 无法正常注册
     @Bean(name = "dataSource")
@@ -34,8 +33,7 @@ public class DruidConfig {
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         // 使用工厂构建druidDataSource对象
-        this.dataSource = DruidDataSourceBuilder.create().build();
-        return dataSource;
+        return DruidDataSourceBuilder.create().build();
     }
 
 
@@ -46,7 +44,7 @@ public class DruidConfig {
      * @return
      */
     @Bean
-    public JdbcTemplate getJdbcTemplate() {
+    public JdbcTemplate getJdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 
