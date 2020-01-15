@@ -8,12 +8,32 @@
     <version>1.0-SNAPSHOT</version>
     <name>canon-web</name>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.canon.five-bitch</groupId>
+                <artifactId>canon-dependencies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>com.canon.five-bitch</groupId>
             <artifactId>base-boot</artifactId>
-            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.canon.five-bitch</groupId>
+            <artifactId>canon-model</artifactId>
         </dependency>
     </dependencies>
 

@@ -26,11 +26,12 @@
     <dependencies>
         <dependency>
             <groupId>com.canon.five-bitch</groupId>
-            <artifactId>base-service</artifactId>
+            <artifactId>base-boot</artifactId>
         </dependency>
+        <!-- eurake server 包 -->
         <dependency>
-            <groupId>com.canon.five-bitch</groupId>
-            <artifactId>canon-model</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
     </dependencies>
 

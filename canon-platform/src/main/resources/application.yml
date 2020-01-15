@@ -1,5 +1,7 @@
 server:
     port: 8081
+    name: platform-service
+
 
 # 启用调试日志。
 debug: false
@@ -25,6 +27,8 @@ logging:
 
 # 使用thymeleaf模板
 spring:
+    application:
+        name: platform-service #应用名称
     # druid
     datasource:
         #   数据源基本配置
@@ -70,5 +74,15 @@ mybatis:
     mapper-locations: classpath:mapper/*.xml
     type-aliases-package: com.canon.model
     # type-handlers-package: org.apache.ibatis.type
+
+
+# spring-could
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+    instance:
+        preferIpAddress: true # 采用IP注册
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}  # 定义实例ID格式
 
 

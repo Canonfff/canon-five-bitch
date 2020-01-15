@@ -23,11 +23,26 @@ logging:
 
 # 使用thymeleaf模板
 spring:
+    application:
+        name: canon-web
     thymeleaf:
         cache: false
         check-template-location: true
-        content-type: text/html
         encoding: UTF-8
         mode: HTML5
         prefix: classpath:/view/templates/
         suffix: .html
+        servlet:
+            content-type: text/html
+
+
+
+# spring-could
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+    instance:
+        preferIpAddress: true # 采用IP注册
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}  # 定义实例ID格式
+
