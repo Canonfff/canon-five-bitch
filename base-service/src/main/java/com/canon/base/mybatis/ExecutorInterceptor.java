@@ -40,9 +40,10 @@ import java.util.Properties;
 public class ExecutorInterceptor implements Interceptor {
     private static Logger logger = LoggerFactory.getLogger(ExecutorInterceptor.class);
 
+    private Properties properties;
+
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        logger.error("ExecutorInterceptor is useings");
         return invocation.proceed();
     }
 
@@ -53,7 +54,6 @@ public class ExecutorInterceptor implements Interceptor {
      */
     @Override
     public Object plugin(Object target) {
-        logger.error("ExecutorInterceptor is plugins");
         return Plugin.wrap(target, this);
     }
 
@@ -64,6 +64,6 @@ public class ExecutorInterceptor implements Interceptor {
     @Override
     public void setProperties(Properties properties) {
         String dataBaseType = properties.getProperty("dataBaseType");
-        logger.error("use dataBaseType is --> {}", dataBaseType);
+        this.properties= properties;
     }
 }
