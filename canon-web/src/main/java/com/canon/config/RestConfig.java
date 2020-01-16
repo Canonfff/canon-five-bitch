@@ -1,5 +1,7 @@
 package com.canon.config;
 
+import com.canon.base.util.BaseHttpMessageConverter;
+import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -19,5 +21,10 @@ public class RestConfig {
     @Bean
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
+    }
+
+    @Bean
+    public HttpMessageConverters getHttpMessageConverter() {
+        return new HttpMessageConverters(new BaseHttpMessageConverter());
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
 
@@ -22,6 +23,7 @@ import java.io.IOException;
  * @Description:
  */
 @ControllerAdvice
+@ResponseBody
 public class CommonExceptionHandler {
 
     private static Logger log = LoggerFactory.getLogger(CommonExceptionHandler.class);
@@ -102,6 +104,11 @@ public class CommonExceptionHandler {
     @ExceptionHandler({StackOverflowError.class})
     public RestObject requestStackOverflow(StackOverflowError ex) {
         return getResult("栈溢出", ex);
+    }
+
+    @ExceptionHandler({Exception.class})
+    public RestObject requestException(Exception ex) {
+        return getResult("未知异常", ex);
     }
 
 

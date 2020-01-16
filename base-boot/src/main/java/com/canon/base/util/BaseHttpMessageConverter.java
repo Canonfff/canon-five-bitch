@@ -19,9 +19,9 @@ import java.nio.charset.StandardCharsets;
  * @Date: 2019/12/6 13:40
  * @Description:
  */
-public class BaseHttpMessageConverters extends FastJsonHttpMessageConverter {
+public class BaseHttpMessageConverter extends FastJsonHttpMessageConverter {
 
-    public BaseHttpMessageConverters() {
+    public BaseHttpMessageConverter() {
         super.setSupportedMediaTypes(Lists.newArrayList(
                 new MediaType("application", "json", StandardCharsets.UTF_8),
                 new MediaType("application", "*+json", StandardCharsets.UTF_8)

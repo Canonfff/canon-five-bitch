@@ -29,6 +29,7 @@ public class IdCenterServiceImpl implements IIdCenterService {
 
     @Override
     public IdCenter findById(Long id) {
+//        int i = 1/0;
         return idCenterMapper.findById(id);
     }
 

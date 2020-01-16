@@ -16,3 +16,4 @@ eureka:
 
   server:
       enableSelfPreservation: false # 关闭自我保护(本地调式的时候可以使用)
+      evictionIntervalTimerInMs: 5000 # 清除无效服务默认6000
