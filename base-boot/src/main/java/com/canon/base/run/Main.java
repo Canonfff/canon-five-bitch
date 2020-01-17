@@ -12,7 +12,6 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan("com.canon.*")
-// @MapperScan(basePackages = "com.canon.*.dao")
 public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);

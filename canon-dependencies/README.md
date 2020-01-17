@@ -84,3 +84,14 @@ https://www.cnblogs.com/A-yes/p/10619390.html
 
 
 开始研究mybatis与spring之间的结合
+
+2020-01-17 
+
+完成基本整合;
+现在开始做一些基本的功能点;后续的框架底层开发再进行开发好了
+
+艹,差点忘记还有eureka的模板开发
+
+一个技术参考网站
+http://springboot.fun/
+
