@@ -40,7 +40,7 @@ import java.util.Properties;
 public class ExecutorInterceptor implements Interceptor {
     private static Logger logger = LoggerFactory.getLogger(ExecutorInterceptor.class);
 
-    private Properties properties;
+
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -63,7 +63,7 @@ public class ExecutorInterceptor implements Interceptor {
      */
     @Override
     public void setProperties(Properties properties) {
-        String dataBaseType = properties.getProperty("dataBaseType");
-        this.properties= properties;
+
     }
+
 }

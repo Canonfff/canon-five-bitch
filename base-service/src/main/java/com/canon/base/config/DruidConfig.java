@@ -44,7 +44,7 @@ public class DruidConfig {
      * @return
      */
     @Bean
-    public JdbcTemplate getJdbcTemplate(DataSource dataSource) {
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 

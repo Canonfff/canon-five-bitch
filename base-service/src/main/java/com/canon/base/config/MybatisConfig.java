@@ -1,8 +1,10 @@
 package com.canon.base.config;
 
 import com.canon.base.mybatis.ExecutorInterceptor;
-import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
+import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,32 +18,38 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MybatisConfig {
 
+    private static Logger log = LoggerFactory.getLogger(MybatisConfig.class);
+
     /**
      * 配置mybatis的包扫描
      * @param basePackage
      * @return
      */
-    @Bean("mapperScannerConfigurer")
-    public MapperScannerConfigurer getMapperScannerConfigurer(@Value("${canon.mybatisBasePackage}") String basePackage) {
-        System.err.println(basePackage);
+    @Bean
+    public MapperScannerConfigurer mapperScannerConfigurer(@Value("${canon.mybatisBasePackage}") String basePackage) {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        // basePackage = "com.*.dao";
         mapperScannerConfigurer.setBasePackage(basePackage);
         return mapperScannerConfigurer;
     }
-
     /**
      * 配置mybatis sql拦截器
      * @return
      */
-    @Bean("configurationCustomizer")
-    public ConfigurationCustomizer getConfigurationCustomizer() {
-        return new ConfigurationCustomizer() {
-            @Override
-            public void customize(org.apache.ibatis.session.Configuration configuration) {
-                configuration.addInterceptor(new ExecutorInterceptor());
-            }
-        };
+//    @Bean
+//    public ConfigurationCustomizer configurationCustomizer() {
+//        return new ConfigurationCustomizer() {
+//            @Override
+//            public void customize(org.apache.ibatis.session.Configuration configuration) {
+//                configuration.addInterceptor(new ExecutorInterceptor());
+//
+//            }
+//        };
+//    }
+
+    @Bean
+    public Interceptor executorInterceptor() {
+        ExecutorInterceptor interceptor = new ExecutorInterceptor();
+        return interceptor;
     }
 
 }
