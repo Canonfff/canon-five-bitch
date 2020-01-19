@@ -95,3 +95,6 @@ https://www.cnblogs.com/A-yes/p/10619390.html
 一个技术参考网站
 http://springboot.fun/
 
+druid 1.1.21 版本修复了localDateTime问题
+
+
